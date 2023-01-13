@@ -1,0 +1,93 @@
+
+
+
+
+    
+    <body style="border: 1px solid white;">
+        
+    
+    <div class="_37K3-p" >
+
+        <div class="_3YgSsQ" *ngFor="let product of allProducts$ | async;let index=index;" style="width: 220px;">
+
+            <div class="_2n7i6c">
+
+                <div  class="_4ddWXP _3BCh3_" data-tkid="R:s;p:MOBGK8WZQJXDBDFF;pt:hp;uid:96301944-928a-11ed-b9e1-c337c0030e52;.MOBGK8VHX6FDJPCE">
+                     <a [routerLink]="['/view',product.id]" class="_2rpwqI"  rel="noopener noreferre">
+                            <div class="_2B-T72">
+                                    <div>
+                                            <div class="CXW8mj" style="height: 150px; width: 150px;">
+                                                    <img loading="eager" class="_396cs4" alt="Not Found" [src]="product.imageUrl">
+
+                                            </div>
+
+                                    </div>
+
+                            </div>
+
+
+                     </a>
+
+                     <div>
+                        <div>
+                            <a [title]="product.name" class="s109rs" [routerLink]="['/products/view',product]">{{product.name}}</a>
+                        </div>
+                        <div class="gUuXy- _2D5lwg">
+                            <span id="productRating_LSTMOBGK8VHX6FDJPCEW9XIEE_MOBGK8VHX6FDJPCE_" class="_1lRcqv">
+                                <div class="_3LWZlK">
+                                    {{product.rating}}
+                                    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMyIgaGVpZ2h0PSIxMiI+PHBhdGggZmlsbD0iI0ZGRiIgZD0iTTYuNSA5LjQzOWwtMy42NzQgMi4yMy45NC00LjI2LTMuMjEtMi44ODMgNC4yNTQtLjQwNEw2LjUuMTEybDEuNjkgNC4wMSA0LjI1NC40MDQtMy4yMSAyLjg4Mi45NCA0LjI2eiIvPjwvc3ZnPg==" class="_1wB99o">
+                            </div>
+                            </span>
+
+                        </div>
+                        <div class="_8VNy32">
+                            <div class="_25b18c">
+                                <div class="_30jeq3">{{product.price| currency:'INR'}}</div>
+                                <div class="_3I9_wc">{{product.oPrice| currency:'INR'}}</div>
+                                <div class="_3Ay6Sb">
+                                    <span>{{percentOf(product.price,product.oPrice)}}% off</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                            
+
+
+                     </div>
+
+
+
+
+                </div>
+
+                
+
+            </div>
+            
+
+
+
+        </div>
+        
+
+
+
+
+
+        <!-- <div style="height:120px; width:150px">
+        <img [src]="product.imageUrl" height="120px" width="150px" style="margin-left: 20px;">  
+        </div>
+        <div>
+            <a style="cursor:pointer; font-size: 16px; color:blue ;" >{{product.name}}</a><br>
+             <button>Add To Cart</button> 
+        </div> -->
+  
+    </div>
+
+    
+
+
+
+
+</body>

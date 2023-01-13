@@ -1,0 +1,48 @@
+
+<div class="card"><div class="card-header">
+    <!-- {{pageTitle}} -->
+</div>
+
+<div class="card-body">
+<form  #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
+
+<div class="form-group">
+    <p>
+    <label for="userName">User Name</label>
+    <input type="text" name="username" id="username"
+    #userName="ngModel"
+    ngModel
+    class="form-control"
+    required
+    >
+
+
+    </p>
+
+<p>
+    <label for="password">password</label>
+    <input type="password" name="password" id="password"
+    #password="ngModel"
+    ngModel
+    class="form-control"
+    required
+    >
+
+
+    <!-- https://teams.microsoft.com/l/meetup-join/19%3ameeting_MTE2OWU3YjUtODllMy00ZTUwLWEyOGQtNTUzNzQ0NDYxZDU4%40thread.v2/0?context=%7b%22Tid%22%3a%22de08c407-19b9-427d-9fe8-edf254300ca7%22%2c%22Oid%22%3a%2287e39199-ea18-4717-9c27-29c4d22e9d42%22%7d -->
+
+
+    </p>
+    <!-- <a class="btn btn-light" (click)="cancel()">Cancel Navigation</a> -->
+
+    <button [disabled]="!loginForm.valid">Log In</button>
+</div>
+
+</form>
+
+
+</div>
+
+
+
+</div>
