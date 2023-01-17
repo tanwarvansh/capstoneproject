@@ -19,7 +19,11 @@ import { ProductEffects } from './state/products/product.effects';
 import { MiniHeaderComponent } from './header/mini-header/mini-header.component';
 import { ViewProductComponent } from './products/view-product/view-product.component';
 import { LoginComponent } from './login/login.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ProductStoreComponent } from './products/product-store/product-store.component';
+import { ProductAddComponent } from './products/product-add/product-add.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { CartComponent } from './cart/cart.component';
 
 
 @NgModule({
@@ -30,6 +34,9 @@ import { FormsModule } from '@angular/forms';
     MiniHeaderComponent,
     ViewProductComponent,
     LoginComponent,
+    ProductStoreComponent,
+    ProductAddComponent,
+    CartComponent,
   
   ],
   imports: [
@@ -41,11 +48,14 @@ import { FormsModule } from '@angular/forms';
     MaterialExampleModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
+    NgbModule,
     InMemoryWebApiModule.forRoot(DBService),
     StoreModule.forRoot([]),
     StoreModule.forFeature('products',productReducer),
     EffectsModule.forRoot([]),
-    EffectsModule.forFeature(ProductEffects)
+    EffectsModule.forFeature(ProductEffects),
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

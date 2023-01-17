@@ -1,0 +1,108 @@
+
+    <div class="container">
+        <div class="productList">
+    <h1>Product List</h1>
+    <a [routerLink]="['productAdd']">Add Product</a>
+    <h2>{{title}}</h2>
+    
+    <table class="table table-bordered table-striped">
+        <thead>
+            <th>S.No</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Image</th>
+            <th>Rating</th>
+            <th>Category</th>
+            <th>Actions</th>
+           
+        </thead>
+        <tbody class="table-striped" *ngFor="let product of productList;let index=index">
+            <tr>
+                <td >{{index}}</td>
+                <td>{{product.name | uppercase}}</td>
+                <td>{{product.price | currency:'INR'}}</td>
+                <td><img src="{{product.imageUrl}}"></td>
+                <td> {{product.rating}} </td>
+                <td>{{product.category}}</td>
+                <td><button class="btn btn-danger" (click)="removeProduct(product)">Delete <i class="fa fa-remove"></i></button>
+                <button class="btn btn-primary" (click)="open(content,product)" >Update <i class="fa fa-edit"></i> </button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+</div>
+
+<!-- <div class="shoppingCart">
+    <app-shopping-cart [product1]="productSend"></app-shopping-cart>
+</div> -->
+
+
+
+<!-- </div>
+<div class="card-footer">
+    <div class="col-md-4 text-right">
+      <button class="btn btn-primary"
+      (click)="newProduct()">Add a Product</button>
+
+    </div>
+  </div> -->
+
+
+
+
+    
+
+<router-outlet></router-outlet>
+
+
+
+
+
+<ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Update Product</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+        <div *ngIf="product1">
+      <form [formGroup]="updateProduct"
+        (ngSubmit)="update(product1)">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <div class="input-group">
+            <input type="text" id="name" formControlName="name" name="name" class="form-control" >
+          </div>
+        </div>
+        <div class="form-group">
+            <label for="price">Price</label>
+            <div class="input-group">
+              <input type="number" id="price" formControlName="price" name="price" class="form-control" >
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="oPrice">Old Price</label>
+            <div class="input-group">
+              <input type="number" id="oPrice" formControlName="oPrice" name="oPrice" class="form-control" >
+            </div>
+         </div>
+         <div class="form-group">
+            <label for="imageUrl">Image Url</label>
+            <div class="input-group">
+              <input type="ext" id="imageUrl" formControlName="imageUrl" name="imageUrl" class="form-control" >
+            </div>
+         </div>
+
+         <div class="modal-footer">
+            <button [disabled]="!updateProduct.valid" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+          </div>
+
+
+      </form>
+    </div>
+    </div>
+    <!-- <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+    </div> -->
+  </ng-template>

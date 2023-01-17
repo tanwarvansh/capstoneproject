@@ -1,0 +1,17 @@
+<h1>Shopping Cart</h1>
+<table class="table table-dark">
+    <thead>
+        <th>Name</th>
+        <th>Price/Qty</th>
+    </thead>
+    <tbody  *ngFor="let pro of cartList">
+        <tr><td>{{pro.product.name}}</td>
+        <td>{{pro.product.price}}</td>
+        <td><button (click)="add(pro.product)">+</button> {{pro.quantity}} <button (click)="minus(pro.product)">-</button></td>
+    </tr>
+       
+    </tbody>
+</table>
+<button class="btn btn-danger" [disabled]="cartList.length==0" (click)="clear()">Clear Cart</button>
+<button class="btn btn-success" [disabled]="cartList.length==0">CheckOut</button>
+<button class="btn btn-primary" (click)="coninueShop()" >Continue Shopping</button>

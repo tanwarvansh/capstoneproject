@@ -6,6 +6,7 @@ export interface State extends AppState.State{
 }
 export interface ProductState{
     products:Product[];
+    currentProductId:number|null;
     error:string;
     status:'pending' | 'loading' |'error'|'success';
 }
@@ -13,6 +14,7 @@ export interface ProductState{
 export const intialState: ProductState={
 
     products:[],
+    currentProductId:null,
     error:'null',
     status:'pending'
 

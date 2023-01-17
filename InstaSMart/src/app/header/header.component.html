@@ -24,19 +24,32 @@
       </button>
 
       <div style="width: 2%;"></div>
-      <a  style="text-decoration: none;cursor: pointer;">
+
+      <a *ngIf="!isLoggedIn" style="text-decoration: none;cursor: pointer;" [routerLink]="['login']">
       <span style="color: white;">
         <p style="margin: 10%; font-size: 80%;">Hello,Sign-In<p>
+      </span>
+    </a>
+    <a *ngIf="isLoggedIn" style="text-decoration: none;cursor: pointer;" [routerLink]="['login']">
+      <span style="color: white;">
+        <p style="margin: 10%; font-size: 80%;">Hello,{{userName}}<p>
       </span>
     </a>
 
 
       <div style="width: 2%;"></div>
       <span>
-
+        <a [routerLink]="['cart']">
         <i class="fa badge" value="5" style="font-size:24px">&#xf07a;</i>
+      </a>
       </span>
 
+
+<a  style="text-decoration: none;cursor: pointer;" (click)="logout()">
+      <span style="color: white;">
+        <p style="margin: 10%; font-size: 80%;">LogOut<p>
+      </span>
+    </a>
 
      
     

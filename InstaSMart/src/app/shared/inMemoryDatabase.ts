@@ -29,7 +29,7 @@ export class DBService implements InMemoryDbService{
                 category:Category.Mobile
             },
             {
-                id:3,
+            id:3,
                 name:'HEERA MOTI CORPORATION Whibla Low Height King Size Bed with Side Tables Without Storage(Finish:- Black & White)',
                 price:39000,
                 oPrice:38999,

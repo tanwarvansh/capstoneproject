@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
+import { CartHelper } from 'src/app/cart/cart.helperServie';
 import { ProductService } from 'src/app/shared/products.service';
 import { getProductById, loadProducts } from 'src/app/state/products/product.action';
 import { selectAllProducts } from 'src/app/state/products/product.selectors';
@@ -18,11 +19,38 @@ export class ViewProductComponent implements OnInit {
   productList:Product[]=[];
   productList$:Observable<Product[]>=new Observable();
 
-  constructor(private router:Router,private productServie:ProductService,private activatedRoute:ActivatedRoute,private store:Store){}
+  constructor(private router:Router,private productServie:ProductService,private activatedRoute:ActivatedRoute,private store:Store,private cartHelper:CartHelper){}
+
+  private deliveryDat=(new Date("2022-02-01"));
+  deliveryDate:any;
+
+  showDate=false;
+
+  toggleDate(){
+    this.showDate = !this.showDate;
+  }
+  cartLIst:Product[]=[];
+  cartAlIst:Product[]=[];
+
+  addToCart(prod:Product|undefined)
+  {
+    if(prod){
+      this.cartLIst.push(prod);
+      this.cartAlIst=this.cartLIst
+      console.log(this.cartAlIst);
+      this.cartHelper.updateCartStageManager(prod);
+    }
+
+
+
+
+  }
+
 
 
 
   ngOnInit(): void {
+    this.deliveryDate=this.deliveryDat.getDate()+5+"-"+0+(this.deliveryDat.getMonth()+1)+"-"+this.deliveryDat.getFullYear() ;
     this.productList$ =this.store.select(selectAllProducts);
     this.productList$.subscribe(data=>{this.productList=data});
 
@@ -46,6 +74,10 @@ export class ViewProductComponent implements OnInit {
 
     })
     
+  }
+  percentOf(price:number,oPrice:number):number{
+    return Math.round(((oPrice-price)/oPrice)*100);
+
   }
 
 

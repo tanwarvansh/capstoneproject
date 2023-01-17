@@ -1,13 +1,14 @@
 import { state } from "@angular/animations";
 import { createReducer, on } from "@ngrx/store";
-import { addProduct, getProductById, loadProducts, LoadToFailure, LoadToSucccess, removeProduct } from "./product.action";
+import { createProduct, getProductById, loadProducts, LoadToFailure, LoadToSucccess, removeProduct, updateProduct } from "./product.action";
 import { intialState } from "./products.state";
 
 
 
 export const productReducer=createReducer(
     intialState,
-    on(addProduct,(state,{product})=>({
+    
+    on(createProduct,(state,{product})=>({
         ...state,
         products:[...state.products,{id:Date.now(),name:product.name,price:product.price,oPrice:product.oPrice,imageUrl:product.imageUrl,rating:product.rating,category:product.category}],
     })),
@@ -16,6 +17,12 @@ export const productReducer=createReducer(
         ...state,
         products:state.products.filter((product)=>product.id!==id),
     })),
+
+    // on(updateProduct,(state,{product})=>({
+        // ...state,
+        // products:state.products.filter((data)=>{if(data.id==product.id){data.price = product.price} return true} )
+    // })),
+
 
     on(getProductById,(state,{id})=>({       
             ...state,

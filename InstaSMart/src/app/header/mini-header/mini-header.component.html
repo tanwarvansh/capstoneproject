@@ -1,39 +1,42 @@
 
     <p>
         <mat-toolbar style="background-color: rgb(37, 47, 61);height: 40px;">
-         <a (click)="filter('All')" style="color: white ;font-weight: 150;">
+         <a  style="color: white ;font-weight: 150;" (click)="filter('All')">
             All
          </a>
         <div style="width: 2%;"></div>
-        <a (click)="filter('All')" style="color: white ; font-weight: 150;">
+        <a (click)="filter('Fresh')" style="color: white ; font-weight: 150;">
             Fresh
          </a> <div style="width: 2%;"></div>
-         <a (click)="filter('All')" style="color: white ;font-weight: 150;">
+         <a (click)="filter('Electric')" style="color: white ;font-weight: 150;">
             Electric
          </a> <div style="width: 2%;"></div>
-         <a (click)="filter('All')" style="color: white ;font-weight: 150;">
+         <a (click)="filter('Mobile')" style="color: white ;font-weight: 150;">
             Mobile
          </a> <div style="width: 2%;"></div>
-         <a (click)="filter('All')" style="color: white ;font-weight: 150;">
+         <a (click)="filter('Furniture')" style="color: white ;font-weight: 150;">
             Furniture
          </a> <div style="width: 2%;"></div>
-         <a (click)="filter('All')" style="color: white ;font-weight: 150;">
+         <a (click)="filter('Fashion')" style="color: white ;font-weight: 150;">
             Fashion
          </a> <div style="width: 2%;"></div>
-         <a (click)="filter('All')" style="color: white ;font-weight: 150;">
+         <a (click)="filter('Health')" style="color: white ;font-weight: 150;">
             Health
          </a> <div style="width: 2%;"></div>
-         <a (click)="filter('All')" style="color: white ;font-weight: 150;">
+         <a (click)="filter('Beauty')" style="color: white ;font-weight: 150;">
             Beauty
          </a> <div style="width: 2%;"></div>
-         <a (click)="filter('All')" style="color: white ;font-weight: 150;">
+         <a (click)="filter('Kitchen')" style="color: white ;font-weight: 150;">
             Kithcen
          </a> <div style="width: 2%;"></div>
-         <a (click)="filter('All')" style="color: white ;font-weight: 150;">
+         <a (click)="filter('Sports')" style="color: white ;font-weight: 150;">
             Sports
          </a> <div style="width: 2%;"></div>
-         <a (click)="filter('All')" style="color: white ;font-weight: 150;">
+         <a (click)="filter('Books')" style="color: white ;font-weight: 150;">
             Books
+         </a> <div style="width: 2%;"></div>
+         <a *ngIf="isAdmin" [routerLink]="['productStore']" style="color: white ;font-weight: 150;">
+            Product Store
          </a>
 
         
