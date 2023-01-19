@@ -2,7 +2,7 @@
       <mat-toolbar style="background-color: black;">
        <a [routerLink]="['']" style="border: 0px; background-color: transparent;" >
         <!-- <mat-icon>search</mat-icon> -->
-        <img src="../../assets/abcicon.jpg" alt="" height="50px" width="120px">
+        <img src="../../assets/instasmart.jpeg" alt="" height="50px" width="120px">
        </a>
       <div style="width: 2%;"></div>
     
@@ -13,21 +13,30 @@
       </div>
       <div style="width: 2%;"></div>
       <span class="example-spacer"></span>
-      
-      <button style="height: 60%;">
-        <p style="font-size: 14px; font-weight: 400;display: inline; margin-right: 8px;">Search</p>
-        <!-- <i class="fa fa-caret-down"></i> -->
-      </button>
-      <input type="text" name="" id="" style="width: 52%; height: 60%;">
-      <button  mat-icon-button style="background-color: rgb(255,190,109); border-radius: 0%;margin-left: 0%;height: 60%;" class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
-        <mat-icon>search</mat-icon>
-      </button>
-
+     
+      <form #inputForm="ngForm" (ngSubmit)="filter(inputForm)" style="width: 97%;">
+        <div style="display: flex;">
+        <button type="button" style="height: 32px;">
+          <div style="display: flex;">
+          <p style="font-size: 14px; font-weight: 400;display: inline; margin-right: 8px;">Search</p>
+          <p style="margin-top: 7%;margin-left: 0;"><mat-icon>chevron_right</mat-icon></p>
+        </div>
+        </button>
+        <input type="text" name="search" id="search" #search="ngModel"  ngModel style="width: 88%; height: 60%;" placeholder="Search By Name">
+        <button type="submit" mat-icon-button style="background-color: rgb(255,190,109); border-radius: 0%;margin-left: 0%;height: 30px;padding-top: 4px;" class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+          <mat-icon >search</mat-icon>
+        </button>
+      </div>
+      </form>
+     
       <div style="width: 2%;"></div>
 
       <a *ngIf="!isLoggedIn" style="text-decoration: none;cursor: pointer;" [routerLink]="['login']">
       <span style="color: white;">
-        <p style="margin: 10%; font-size: 80%;">Hello,Sign-In<p>
+        <div style="display: flex;">
+          <p style="margin: 10%; font-size: 80%;">Hello,SignIn<p>
+            <p style="margin-top: 12%;"><mat-icon>login</mat-icon></p>
+          </div>
       </span>
     </a>
     <a *ngIf="isLoggedIn" style="text-decoration: none;cursor: pointer;" [routerLink]="['login']">
@@ -37,17 +46,27 @@
     </a>
 
 
-      <div style="width: 2%;"></div>
+      <div style="width: 4%;"></div>
       <span>
         <a [routerLink]="['cart']">
-        <i class="fa badge" value="5" style="font-size:24px">&#xf07a;</i>
+          <div class="demo-section">
+  
+            <!-- <mat-icon matBadge="15" matBadgeColor="warn"><i class="fa badge" value=24 style="font-size:24px;color: white;">&#xf07a;</i></mat-icon> -->
+            <mat-icon [matBadge]="value" matBadgeColor="warn">shopping_cart_checkout</mat-icon>
+             
+          </div>
       </a>
       </span>
+      
+      <div style="width: 2%;"></div>
 
 
-<a  style="text-decoration: none;cursor: pointer;" (click)="logout()">
+<a *ngIf="isLoggedIn" style="text-decoration: none;cursor: pointer;" (click)="logout()">
       <span style="color: white;">
+        <div style="display: flex;">
         <p style="margin: 10%; font-size: 80%;">LogOut<p>
+          <p style="margin-top: 14%;"><mat-icon>logout</mat-icon></p>
+        </div>
       </span>
     </a>
 

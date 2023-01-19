@@ -1,4 +1,4 @@
-.badge:after{
+/* .badge:after{
     content:attr(value);
     font-size:12px;
     background: red;
@@ -8,7 +8,7 @@
     left:-8px;
     top:-10px;
     opacity:0.9;
-    }
+    } */
 
 
     .nav-line-1{
@@ -21,7 +21,6 @@
         line-height: 14px;
         height: 14px;
         font-weight: 400;
-        /* float: left; */
         clear: both;
         display: inline-block;
         white-space: nowrap;

@@ -85,6 +85,7 @@ export class ProductAddComponent implements OnInit ,OnDestroy{
       name: ['abc',[ Validators.required,Validators.minLength(3),Validators.maxLength(10)]],
       category:[Category.Kitchen,[Validators.required]],
       price:['',[Validators.required]],
+      oPrice:['',[Validators.required]],
       image:['',[Validators.required]],
       rating:[3,[Validators.required]]
     })
@@ -164,8 +165,9 @@ export class ProductAddComponent implements OnInit ,OnDestroy{
    }
 
   }
-
+added:boolean=false;
   saveProduct(originalProduct:Product):void{
+    this.added=true;
     console.log(originalProduct);
     if(this.addProduct.valid){
       if(this.addProduct.dirty){

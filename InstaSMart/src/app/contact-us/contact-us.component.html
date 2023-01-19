@@ -1,0 +1,45 @@
+<body style="background-color: rgb(241,243,246);">
+    
+
+<div class="container">
+    <h2 id="title">InstaSMart Help Center | 24x7 Custome Care Support</h2>
+<p style="font-size: 10px;">The InstaSMart Help Centre page lists out various types of issues that you may have encountered so that there can be quick resolution and you can go back to shopping online. For example, you can get more information regarding order tracking, delivery date changes, help with returns (and refunds), and much more. The InstaSMart Help Centre also lists out more information that you may need regarding InstaSMart Plus, payment, shopping, and more. The page has various filters listed out on the left-hand side so that you can get your queries solved quickly, efficiently, and without a hassle. You can get the InstaSMart Help Centre number or even access InstaSMart Help Centre support if you need professional help regarding various topics. The support executive will ensure speedy assistance so that your shopping experience is positive and enjoyable. You can even inform your loved ones of the support page so that they can properly get their grievances addressed as well. Once you have all your queries addressed, you can pull out your shopping list and shop for all your essentials in one place. You can shop during festive sales to get your hands on some unbelievable deals online. This information is updated on 19-Jan-23</p>
+
+<h2>Please Enter You Contact Details Below:</h2>
+
+<form (ngSubmit)="submit()" #contactForm="ngForm" >
+    <mat-form-field appearance="fill">
+        <mat-label>First Name</mat-label> 
+        <input type="text" matInput name="firstName" id="firstName" required="true" #firstName="ngModel" ngModel>
+       </mat-form-field> <br> 
+      <mat-form-field appearance="fill">
+        <mat-label>Last Name</mat-label>
+        <input type="text" required name="lastName" id="lastName" #lastName="ngModel" ngModel matInput>
+      </mat-form-field> <br>
+      <mat-form-field appearance="fill">
+        <mat-label>Select Issue</mat-label>
+        <mat-select required="true" name="issue" id="issue" #issue="ngModel" ngModel>
+          <mat-option value="one">Product Related Issue</mat-option>
+          <mat-option value="two">Delivery Related Issue</mat-option>
+          <mat-option value="two">Seller Related Issue</mat-option>
+          <mat-option value="two">Any Other Isuue</mat-option>
+        </mat-select>
+      </mat-form-field> <br>
+      <mat-form-field appearance="fill">
+        <mat-label>Comments</mat-label>
+        <textarea type="text" id="comments" matInput></textarea>
+      </mat-form-field>
+      <br>
+
+      <button [disabled]="!contactForm.valid"  mat-raised-button color="primary">Submit</button>
+      <br>
+
+    </form>
+
+</div>
+
+
+
+
+
+</body>

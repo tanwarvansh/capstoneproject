@@ -21,8 +21,9 @@ export class ViewProductComponent implements OnInit {
 
   constructor(private router:Router,private productServie:ProductService,private activatedRoute:ActivatedRoute,private store:Store,private cartHelper:CartHelper){}
 
-  private deliveryDat=(new Date("2022-02-01"));
+  private deliveryDat=(new Date());
   deliveryDate:any;
+  message:string='';
 
   showDate=false;
 
@@ -40,6 +41,10 @@ export class ViewProductComponent implements OnInit {
       console.log(this.cartAlIst);
       this.cartHelper.updateCartStageManager(prod);
     }
+
+    this.message="Item Added to Cart Successfully";
+
+    setTimeout(()=>this.message='',2000);
 
 
 

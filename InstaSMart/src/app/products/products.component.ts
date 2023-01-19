@@ -1,4 +1,5 @@
 import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { NgbCarouselConfig, NgbConfig } from '@ng-bootstrap/ng-bootstrap';
 import { Store } from '@ngrx/store';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { ProductService } from '../shared/products.service';
@@ -13,8 +14,12 @@ import { HelperService } from './products.helpservice';
   styleUrls: ['./products.component.css']
 })
 export class ProductsComponent implements OnInit,OnChanges{
-  constructor(private productService:ProductService,private store:Store,private helper:HelperService){}
+  constructor(private productService:ProductService,private store:Store,private helper:HelperService,private config:NgbCarouselConfig){
+    config.showNavigationArrows = true;
+		config.showNavigationIndicators = true;
+  }
   filterValue:string='All';
+  filterSearch:string='';
   ngOnChanges(changes: SimpleChanges): void {
     console.log('in ng chnage')
     this.helper.currentFilterStage.subscribe(data=>this.filterValue=data);
@@ -31,6 +36,10 @@ export class ProductsComponent implements OnInit,OnChanges{
    private msger=new BehaviorSubject('mesg necc');
    public check=this.msger.asObservable();
    ram=this.helper.currentFilterStage;
+   showNavigationArrows = false;
+	showNavigationIndicators = false;
+  //  images = [944, 1011, 984].map((n) => `https://picsum.photos/id/${n}/900/500`);
+   images=['../../assets/book2.jpeg','../../assets/book1.jpeg','../../assets/AmazonBrandAlmirah.jpg','../../assets/onePlus.webp']
 
 
 
@@ -42,6 +51,24 @@ export class ProductsComponent implements OnInit,OnChanges{
       return data.category==this.filterValue});
     console.log(this.filteredList);
   });
+
+  this.helper.currentFilterSearch.subscribe(data=>{console.log(data),this.filterSearch=data;
+    
+      this.filteredList=[];
+      for(let i=0;i<this.productList.length;i++){
+        if(this.productList[i].name.includes(this.filterSearch)){
+          console.log(this.productList[i].name+'present');
+            console.log(this.productList[i]);
+          this.filteredList.push(this.productList[i]);
+        }
+      }
+      console.log(this.filteredList);
+    
+
+  });
+
+
+  
 
 
 

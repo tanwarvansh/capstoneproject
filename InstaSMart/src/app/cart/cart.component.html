@@ -1,17 +1,59 @@
 <h1>Shopping Cart</h1>
+<div *ngIf="cartList.length>0" style="float: right;background-color: black;color: white;">TOTAL COST: {{totalCost|currency:'INR'}}</div>
 <table class="table table-dark">
-    <thead>
+    <thead *ngIf="cartList.length>0" style="color: black;" >
         <th>Name</th>
         <th>Price/Qty</th>
+        <th>Qty</th>
+        <th>Total Price</th>
     </thead>
     <tbody  *ngFor="let pro of cartList">
         <tr><td>{{pro.product.name}}</td>
-        <td>{{pro.product.price}}</td>
+        <td>{{pro.product.price|currency:'INR'}}</td>
         <td><button (click)="add(pro.product)">+</button> {{pro.quantity}} <button (click)="minus(pro.product)">-</button></td>
+        <td>{{pro.quantity*pro.product.price | currency:'INR'}}</td>
     </tr>
        
     </tbody>
 </table>
+ <br>
 <button class="btn btn-danger" [disabled]="cartList.length==0" (click)="clear()">Clear Cart</button>
-<button class="btn btn-success" [disabled]="cartList.length==0">CheckOut</button>
+<button class="btn btn-success" [disabled]="cartList.length==0" (click)="checkout()">CheckOut</button>
 <button class="btn btn-primary" (click)="coninueShop()" >Continue Shopping</button>
+
+
+
+<div  *ngIf="checkOut==true" style="margin: 1%; padding: 1%;">
+            <!-- <label for="paymentMode">Payment Mode:</label>
+            Cash On Delivery<input type="radio" name="paymentMode" #paymentModeCOD="ngModel" ngModel id="cod" (click)="upiMode('of')" checked>
+            UPI<input type="radio"  id="upi" name="paymentMode"  #paymentModeUPI="ngModel" ngModel (click)="upiMode('on')">
+            <div *ngIf="upimode==true">
+                Enter UPI Id:<input type="text" required>
+            </div> -->
+            <h3>Payment Mode</h3>
+
+            <mat-radio-group aria-label="Payment Mode">
+                <mat-radio-button value="cod" (click)="upiMode('of')" >Cash On Delivery</mat-radio-button>
+                <mat-radio-button value="upi" ngModel (click)="upiMode('on')">UPI</mat-radio-button>
+            </mat-radio-group>
+
+            <div *ngIf="upimode==true">
+                Enter UPI Id:<input type="text" (keypress)="data1(val.value)" #val required>
+                <input type="date" name="" id="" min={{date}}>
+            </div>
+
+            <br>
+            
+        <button type="submit" [disabled]="!isValid()" class="btn btn-success" (click)="paymentDone()">Continue</button>
+    
+  
+    
+    
+</div>
+<!-- <mat-radio-group aria-label="Payment Mode">
+    <mat-radio-button value="cod" checked="true" (click)="upiMode('of')" >Cash On Delivery</mat-radio-button>
+    <mat-radio-button value="upi" ngModel (click)="upiMode('on')">UPI</mat-radio-button>
+</mat-radio-group> -->
+
+
+

@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 import { MiniHeaderComponent } from './mini-header.component';
 
@@ -8,7 +9,8 @@ describe('MiniHeaderComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MiniHeaderComponent ]
+      declarations: [ MiniHeaderComponent ],
+      imports:[MatToolbarModule]
     })
     .compileComponents();
 

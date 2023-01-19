@@ -1,16 +1,16 @@
 ._37K3-p{
-    transition: -webkit-transform .4s ease-in-out;
+    /* transition: -webkit-transform .4s ease-in-out;
     transition: transform .4s ease-in-out;
-    transition: transform .4s ease-in-out,-webkit-transform .4s ease-in-out;
-    display: -webkit-flex;
-    display: -ms-flexbox;
+    transition: transform .4s ease-in-out,-webkit-transform .4s ease-in-out; */
+    /* display: -webkit-flex;
+    display: -ms-flexbox; */
     display: flex;
-    -webkit-flex-direction: row;
-    -ms-flex-direction: row;
+    /* -webkit-flex-direction: row;
+    -ms-flex-direction: row; */
     flex-direction: row;
     flex-wrap: wrap;
-    -webkit-align-items: stretch;
-    -ms-flex-align: stretch;
+    /* -webkit-align-items: stretch;
+    -ms-flex-align: stretch; */
    
     
     

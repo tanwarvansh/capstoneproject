@@ -13,7 +13,7 @@ export class ProductService{
     constructor(private http:HttpClient){}
 
 
-     private url:string='/api/products';
+     public url:string='/api/products';
      products:Product[]=[];
 
 
@@ -29,6 +29,25 @@ export class ProductService{
       );
      
     }
+    foundIndex:number=-1;
+
+    getProductById(id:number):Observable<Product>{
+      return this.getProducts().pipe(
+        tap(()=>{console.log('fetch product'+id);
+         this.foundIndex =this.products.findIndex(item=>item.id ==id);
+        //if(this.foundIndex > -1){
+         // this.products[this.foundIndex];
+          //  }
+        }),
+        map(()=>this.products[this.foundIndex]),
+        // catchError(this.errorHandler)
+        );
+  
+  
+  
+  
+  
+     }
 
 
 
