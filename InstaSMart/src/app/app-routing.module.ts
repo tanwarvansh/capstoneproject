@@ -26,6 +26,7 @@ const routes: Routes = [
 {path:'contact-us',component:ContactUsComponent},
 {path:'login',component:LoginComponent},
 {path:'productStore',component:ProductStoreComponent,
+canActivate:[AuthGuard],
 children:[{path:'productAdd',component:ProductAddComponent}]},
 {path:'**',component:PageNotFoundComponent}
 ];

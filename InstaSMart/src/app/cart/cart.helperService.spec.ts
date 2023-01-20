@@ -34,18 +34,19 @@ beforeEach(()=>{
      injector = getTestBed();
 
     httpMock = injector.get(HttpTestingController);
-      items=[{
-        product:{
-            id:1,
-            name:'Samsung Galaxy S22 5G (Green, 8GB, 128GB Storage) with No Cost EMI/Additional Exchange Offers',
-            price:27999,
-            oPrice:38999,
-            imageUrl:'../../assets/SamsungGalaxys215g.jpg',
-            rating:4.2,
-            category:Category.Mobile
-        },
-        quantity:1
-    }
+      items=[
+        // {
+    //     product:{
+    //         id:1,
+    //         name:'Samsung Galaxy S22 5G (Green, 8GB, 128GB Storage) with No Cost EMI/Additional Exchange Offers',
+    //         price:27999,
+    //         oPrice:38999,
+    //         imageUrl:'../../assets/SamsungGalaxys215g.jpg',
+    //         rating:4.2,
+    //         category:Category.Mobile
+    //     },
+    //     quantity:1
+    // }
       ];
 
 

@@ -84,6 +84,7 @@ export class CartComponent implements OnInit{
     }
 
     alert("Congratulations! Your order has been successfully placed");
+    this.clear();
     this.router.navigate(['products']);
   }
 

@@ -1,14 +1,14 @@
 
     <p>
         <mat-toolbar style="background-color: rgb(37, 47, 61);height: 40px;">
-         <a  style="color: white ;font-weight: 150;" (click)="filter('All')">
+         <a id="all" style="color: white ;font-weight: 150;" (click)="filter('All')">
             All
          </a>
         <div style="width: 2%;"></div>
-        <a (click)="filter('Fresh')" style="color: white ; font-weight: 150;">
+        <a id="fresh" (click)="filter('Fresh')" style="color: white ; font-weight: 150;">
             Fresh
          </a> <div style="width: 2%;"></div>
-         <a (click)="filter('Electric')" style="color: white ;font-weight: 150;">
+         <a id="electric" (click)="filter('Electric')" style="color: white ;font-weight: 150;">
             Electric
          </a> <div style="width: 2%;"></div>
          <a (click)="filter('Mobile')" style="color: white ;font-weight: 150;">

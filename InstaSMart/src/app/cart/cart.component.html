@@ -22,25 +22,25 @@
 <button class="btn btn-primary" (click)="coninueShop()" >Continue Shopping</button>
 
 
-
-<div  *ngIf="checkOut==true" style="margin: 1%; padding: 1%;">
+<div id="checkout" *ngIf="checkOut==true" style="margin: 1%; padding: 1%;">
             <!-- <label for="paymentMode">Payment Mode:</label>
             Cash On Delivery<input type="radio" name="paymentMode" #paymentModeCOD="ngModel" ngModel id="cod" (click)="upiMode('of')" checked>
             UPI<input type="radio"  id="upi" name="paymentMode"  #paymentModeUPI="ngModel" ngModel (click)="upiMode('on')">
             <div *ngIf="upimode==true">
                 Enter UPI Id:<input type="text" required>
             </div> -->
+            
             <h3>Payment Mode</h3>
 
             <mat-radio-group aria-label="Payment Mode">
-                <mat-radio-button value="cod" (click)="upiMode('of')" >Cash On Delivery</mat-radio-button>
-                <mat-radio-button value="upi" ngModel (click)="upiMode('on')">UPI</mat-radio-button>
+                <mat-radio-button value="cod" id="cod" (click)="upiMode('of')" >Cash On Delivery</mat-radio-button>
+                <mat-radio-button value="upi" id="upi" ngModel (click)="upiMode('on')">UPI</mat-radio-button>
             </mat-radio-group>
 
             <div *ngIf="upimode==true">
-                Enter UPI Id:<input type="text" (keypress)="data1(val.value)" #val required>
-                <input type="date" name="" id="" min={{date}}>
+                Enter UPI Id:<input type="text" id="upiInput" (keypress)="data1(val.value)" #val required>
             </div>
+            
 
             <br>
             

@@ -10,8 +10,10 @@ import { User } from '../user/user';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
+  pageTitle='Login'
   constructor(private authService:AuthService,private router:Router){ }
   errorMessage:string='';
+
   onSubmit(form:NgForm){
     if(form && form.valid){
       const username=form.form.value.username;
@@ -19,6 +21,15 @@ export class LoginComponent {
     
 
     this.authService.login(username,password);
+
+    const user=this.authService.currentUser;
+    if(user){
+
+    }else{
+      this.errorMessage="Please Enter Valid Username or Password";
+      setTimeout(()=>this.errorMessage='',2000);
+      return;
+    }
 
     if(this.authService.redirectToUrl){
       this.router.navigateByUrl(this.authService.redirectToUrl);
@@ -29,13 +40,7 @@ export class LoginComponent {
 
     }
 
-    const user=this.authService.currentUser;
-    if(user){
-
-    }else{
-      this.errorMessage="Please Enter Valid Username or Password";
-      setTimeout(()=>this.errorMessage='',2000);
-    }
+    
 
 
 

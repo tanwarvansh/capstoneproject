@@ -29,12 +29,14 @@ describe('ContactUsComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-  it('title should be about us',()=>{
+
+  it('testing title of contact us',()=>{
     const title=fixture.debugElement.query(By.css('#title'));
     expect(title).toBeTruthy();
     expect(title.nativeElement.textContent).toEqual('InstaSMart Help Center | 24x7 Custome Care Support');
     // expect(title.nativeElement.getAttribute('r')).toBeTrue;
   })
+
   it('first Name should be of type text',()=>{
     const title=fixture.debugElement.query(By.css('#firstName'));
     expect(title).toBeTruthy();

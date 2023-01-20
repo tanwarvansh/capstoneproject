@@ -23,6 +23,7 @@ export class CartHelper{
 
     clearCart(){
         this.productList=[];
+        this.cartStageManager.next(this.getDeatils()[0]);
     }
 
     deleteProductById(id:number){

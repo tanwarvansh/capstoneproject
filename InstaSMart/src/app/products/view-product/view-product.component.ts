@@ -51,6 +51,11 @@ export class ViewProductComponent implements OnInit {
 
   }
 
+  buyNow(product:Product|undefined){
+    this.addToCart(product);
+    this.router.navigate(['cart']);
+  }
+
 
 
 

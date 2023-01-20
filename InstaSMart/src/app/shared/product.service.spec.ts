@@ -283,8 +283,6 @@ afterEach(() => {
 
 
 
-
-
    
 
      service.deleteProduct(6).subscribe(resp=>expect(resp).toEqual({}) )
